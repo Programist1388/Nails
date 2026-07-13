@@ -12,6 +12,7 @@ const themes = [
 
 export function Hero() {
   const [active, setActive] = useState(themes[0].name);
+  const activeColor = themes.find((theme) => theme.name === active)!.color;
 
   return (
     <section className="relative overflow-hidden bg-cream">
@@ -70,8 +71,42 @@ export function Hero() {
             sizes="(min-width: 768px) 480px, 100vw"
             className="object-cover"
           />
+
+          <div className="absolute bottom-5 left-5 flex items-end gap-3 rounded-2xl bg-white/90 px-5 py-4 shadow-lg backdrop-blur">
+            <NailSwatch color={activeColor} height={56} width={28} delay="0ms" />
+            <NailSwatch color={activeColor} height={68} width={30} delay="60ms" />
+            <NailSwatch color={activeColor} height={50} width={26} delay="120ms" />
+            <div className="ml-2 pb-1">
+              <p className="text-xs font-medium text-foreground/50">Превью</p>
+              <p className="text-sm font-semibold text-raspberry-dark">{active}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function NailSwatch({
+  color,
+  width,
+  height,
+  delay,
+}: {
+  color: string;
+  width: number;
+  height: number;
+  delay: string;
+}) {
+  return (
+    <span
+      className="block rounded-t-full rounded-b-md border border-black/5 shadow-sm transition-colors duration-500 ease-out"
+      style={{
+        backgroundColor: color,
+        width,
+        height,
+        transitionDelay: delay,
+      }}
+    />
   );
 }
