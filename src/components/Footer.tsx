@@ -5,7 +5,7 @@ export function Footer() {
     <footer id="contacts" className="bg-raspberry-dark py-12 text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 sm:grid-cols-3">
         <div>
-          <p className="font-serif text-xl">MILÁN</p>
+          <p className="font-serif text-xl">Anastasia</p>
           <p className="mt-2 text-sm text-white/70">Студия маникюра</p>
         </div>
 
@@ -21,7 +21,7 @@ export function Footer() {
       </div>
 
       <p className="mt-10 text-center text-xs text-white/50">
-        © {year} MILÁN Manicure Studio
+        © {year} Anastasia Manicure Studio
       </p>
     </footer>
   );

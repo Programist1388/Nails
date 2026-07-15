@@ -15,7 +15,7 @@ export function Header() {
           href="#"
           className="font-serif text-2xl tracking-wide text-raspberry-dark"
         >
-          MILÁN
+          Anastasia
         </Link>
 
         <nav className="hidden gap-8 md:flex">

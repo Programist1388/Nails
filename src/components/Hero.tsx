@@ -32,7 +32,13 @@ export function Hero() {
 
           <div className="mt-8">
             <p className="mb-3 text-sm font-medium text-foreground/70">
-              Оттенок сезона: <span className="text-raspberry-dark">{active}</span>
+              Оттенок сезона:{" "}
+              <span
+                className="font-semibold transition-colors duration-500"
+                style={{ color: activeColor }}
+              >
+                {active}
+              </span>
             </p>
             <div className="flex gap-3">
               {themes.map((theme) => (
@@ -78,7 +84,12 @@ export function Hero() {
             <NailSwatch color={activeColor} height={50} width={26} delay="120ms" />
             <div className="ml-2 pb-1">
               <p className="text-xs font-medium text-foreground/50">Превью</p>
-              <p className="text-sm font-semibold text-raspberry-dark">{active}</p>
+              <p
+                className="text-sm font-semibold transition-colors duration-500"
+                style={{ color: activeColor }}
+              >
+                {active}
+              </p>
             </div>
           </div>
         </div>

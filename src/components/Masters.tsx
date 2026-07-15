@@ -5,19 +5,19 @@ const masters = [
     name: "Алина",
     role: "Топ-мастер, сложные дизайны",
     photo:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80&auto=format&fit=crop",
   },
   {
     name: "Камила",
     role: "Специалист по наращиванию",
     photo:
-      "https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80&auto=format&fit=crop",
   },
   {
     name: "Дарья",
     role: "Маникюр и педикюр",
     photo:
-      "https://images.unsplash.com/photo-1534180477871-5d6cc81f3920?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80&auto=format&fit=crop",
   },
 ];
 
