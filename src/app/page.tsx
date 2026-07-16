@@ -4,7 +4,6 @@ import { Services } from "@/components/Services";
 import { Masters } from "@/components/Masters";
 import { GetTheLook } from "@/components/GetTheLook";
 import { Portfolio } from "@/components/Portfolio";
-import { Community } from "@/components/Community";
 import { BookingForm } from "@/components/BookingForm";
 import { Footer } from "@/components/Footer";
 
@@ -18,7 +17,6 @@ export default function Home() {
         <Masters />
         <GetTheLook />
         <Portfolio />
-        <Community />
         <BookingForm />
       </main>
       <Footer />
