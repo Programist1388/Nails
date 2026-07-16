@@ -32,7 +32,6 @@ export function Hero() {
 
           <div className="mt-8">
             <p className="mb-3 text-sm font-medium text-foreground/70">
-              Оттенок сезона:{" "}
               <span
                 className="font-semibold transition-colors duration-500"
                 style={{ color: activeColor }}
