@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 
 const masters = [
   {
@@ -25,32 +26,36 @@ export function Masters() {
   return (
     <section id="masters" className="bg-raspberry-light/30 py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
-            Команда
-          </p>
-          <h2 className="font-serif text-3xl text-foreground md:text-4xl">
-            Наши мастера
-          </h2>
-        </div>
+        <Reveal>
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
+              Команда
+            </p>
+            <h2 className="font-serif text-3xl text-foreground md:text-4xl">
+              Наши мастера
+            </h2>
+          </div>
+        </Reveal>
 
         <div className="grid gap-8 sm:grid-cols-3">
-          {masters.map((master) => (
-            <div key={master.name} className="text-center">
-              <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full shadow-md sm:w-full">
-                <Image
-                  src={master.photo}
-                  alt={master.name}
-                  fill
-                  sizes="(min-width: 640px) 320px, 160px"
-                  className="object-cover"
-                />
+          {masters.map((master, i) => (
+            <Reveal key={master.name} delay={i * 100}>
+              <div className="group text-center">
+                <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full shadow-md transition-shadow duration-300 group-hover:shadow-xl sm:w-full">
+                  <Image
+                    src={master.photo}
+                    alt={master.name}
+                    fill
+                    sizes="(min-width: 640px) 320px, 160px"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="mt-5 font-serif text-xl text-foreground">
+                  {master.name}
+                </h3>
+                <p className="mt-1 text-sm text-foreground/60">{master.role}</p>
               </div>
-              <h3 className="mt-5 font-serif text-xl text-foreground">
-                {master.name}
-              </h3>
-              <p className="mt-1 text-sm text-foreground/60">{master.role}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

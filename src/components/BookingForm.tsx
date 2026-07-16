@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Reveal } from "@/components/Reveal";
 
 const serviceOptions = [
   "Маникюр + гель-лак",
@@ -11,7 +12,7 @@ const serviceOptions = [
   "SPA-уход за руками",
 ];
 
-const masterOptions = ["Алина", "Камила", "Дарья", "Любой мастер"];
+const masterOptions = ["Алина", "Камила", "Виктория", "Любой мастер"];
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -24,15 +25,18 @@ export function BookingForm() {
   return (
     <section id="booking" className="bg-raspberry-light/30 py-20">
       <div className="mx-auto max-w-xl px-6">
-        <div className="mb-10 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
-            Запись
-          </p>
-          <h2 className="font-serif text-3xl text-foreground md:text-4xl">
-            Запишитесь на маникюр
-          </h2>
-        </div>
+        <Reveal>
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
+              Запись
+            </p>
+            <h2 className="font-serif text-3xl text-foreground md:text-4xl">
+              Запишитесь на маникюр
+            </h2>
+          </div>
+        </Reveal>
 
+        <Reveal delay={100}>
         <div className="rounded-3xl bg-white p-8 shadow-lg">
           {submitted ? (
             <div className="py-10 text-center">
@@ -160,6 +164,7 @@ export function BookingForm() {
             </form>
           )}
         </div>
+        </Reveal>
       </div>
     </section>
   );
