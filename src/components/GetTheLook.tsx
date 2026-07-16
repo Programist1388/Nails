@@ -4,35 +4,48 @@ import Image from "next/image";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 
-const colors = [
+const looks = [
   {
-    name: "Дымчатый лавандовый",
-    hex: "#9b96a8",
-    top: "34%",
-    left: "40%",
+    title: "Дымка над городом",
+    image:
+      "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=900&q=80&auto=format&fit=crop",
+    colors: [
+      { name: "Дымчатый лавандовый", hex: "#9b96a8", top: "34%", left: "40%" },
+      { name: "Молочный", hex: "#f2eee7", top: "55%", left: "46%" },
+      { name: "Серебряный иней", hex: "#c9c3ba", top: "70%", left: "45%" },
+      { name: "Графитовый серый", hex: "#7c7871", top: "78%", left: "56%" },
+    ],
   },
   {
-    name: "Молочный",
-    hex: "#f2eee7",
-    top: "55%",
-    left: "46%",
+    title: "Готика в деталях",
+    image:
+      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=80&auto=format&fit=crop",
+    colors: [
+      { name: "Чёрный лак", hex: "#161616", top: "44%", left: "59%" },
+      { name: "Черепаховый узор", hex: "#7a4a24", top: "60%", left: "68%" },
+    ],
   },
   {
-    name: "Серебряный иней",
-    hex: "#c9c3ba",
-    top: "70%",
-    left: "45%",
-  },
-  {
-    name: "Графитовый серый",
-    hex: "#7c7871",
-    top: "78%",
-    left: "56%",
+    title: "Алая история любви",
+    image:
+      "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&q=80&auto=format&fit=crop",
+    colors: [
+      { name: "Вишнёвый глянец", hex: "#a3123a", top: "51%", left: "78%" },
+      { name: "Белая роспись", hex: "#faf7f2", top: "59%", left: "57%" },
+    ],
   },
 ];
 
 export function GetTheLook() {
-  const [active, setActive] = useState(colors[0].name);
+  const [lookIndex, setLookIndex] = useState(0);
+  const [active, setActive] = useState(looks[0].colors[0].name);
+  const look = looks[lookIndex];
+
+  function goTo(index: number) {
+    const next = (index + looks.length) % looks.length;
+    setLookIndex(next);
+    setActive(looks[next].colors[0].name);
+  }
 
   return (
     <section className="bg-cream py-20">
@@ -40,14 +53,14 @@ export function GetTheLook() {
         <Reveal>
           <div className="relative aspect-square w-full overflow-hidden rounded-[2rem] shadow-xl transition-shadow duration-300 hover:shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=900&q=80&auto=format&fit=crop"
-              alt="Готовый образ маникюра"
+              src={look.image}
+              alt={look.title}
               fill
               sizes="(min-width: 768px) 480px, 100vw"
               className="object-cover"
             />
 
-            {colors.map((color) => (
+            {look.colors.map((color) => (
               <div
                 key={color.name}
                 className="absolute -translate-x-1/2 -translate-y-1/2"
@@ -78,6 +91,41 @@ export function GetTheLook() {
                 </button>
               </div>
             ))}
+
+            <button
+              type="button"
+              aria-label="Предыдущий образ"
+              onClick={() => goTo(lookIndex - 1)}
+              className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-raspberry-dark shadow-md backdrop-blur transition-all hover:bg-white hover:scale-110"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Следующий образ"
+              onClick={() => goTo(lookIndex + 1)}
+              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-raspberry-dark shadow-md backdrop-blur transition-all hover:bg-white hover:scale-110"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+              {looks.map((l, i) => (
+                <button
+                  key={l.title}
+                  type="button"
+                  aria-label={l.title}
+                  onClick={() => goTo(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    i === lookIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </Reveal>
 
@@ -86,8 +134,8 @@ export function GetTheLook() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-raspberry">
               Образ дня
             </p>
-            <h2 className="font-serif text-3xl leading-tight text-foreground md:text-4xl">
-              Дымка над городом
+            <h2 className="font-serif text-3xl leading-tight text-foreground transition-opacity duration-300 md:text-4xl">
+              {look.title}
             </h2>
 
             <p className="mt-5 text-sm font-medium text-foreground/70">
@@ -95,7 +143,7 @@ export function GetTheLook() {
             </p>
 
             <div className="mt-4 grid grid-cols-2 gap-4">
-              {colors.map((color) => (
+              {look.colors.map((color) => (
                 <button
                   key={color.name}
                   type="button"
