@@ -32,6 +32,7 @@ const looks = [
     colors: [
       { name: "Вишнёвый глянец", hex: "#a3123a", top: "51%", left: "78%" },
       { name: "Белая роспись", hex: "#faf7f2", top: "59%", left: "57%" },
+      { name: "Нюдовый беж", hex: "#e6c3ad", top: "48%", left: "21%" },
     ],
   },
 ];
@@ -52,13 +53,19 @@ export function GetTheLook() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2">
         <Reveal>
           <div className="relative aspect-square w-full overflow-hidden rounded-[2rem] shadow-xl transition-shadow duration-300 hover:shadow-2xl">
-            <Image
-              src={look.image}
-              alt={look.title}
-              fill
-              sizes="(min-width: 768px) 480px, 100vw"
-              className="object-cover"
-            />
+            {looks.map((l, i) => (
+              <Image
+                key={l.image}
+                src={l.image}
+                alt={l.title}
+                fill
+                loading="eager"
+                sizes="(min-width: 768px) 480px, 100vw"
+                className={`object-cover transition-opacity duration-300 ${
+                  i === lookIndex ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
 
             {look.colors.map((color) => (
               <div
