@@ -14,10 +14,10 @@ const masters = [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80&auto=format&fit=crop",
   },
   {
-    name: "Дарья",
+    name: "Виктория",
     role: "Маникюр и педикюр",
     photo:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80&auto=format&fit=crop",
   },
 ];
 
