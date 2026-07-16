@@ -48,21 +48,35 @@ export function GetTheLook() {
             />
 
             {colors.map((color) => (
-              <button
+              <div
                 key={color.name}
-                type="button"
-                aria-label={color.name}
-                onClick={() => setActive(color.name)}
-                className="group absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+                className="absolute -translate-x-1/2 -translate-y-1/2"
                 style={{ top: color.top, left: color.left }}
               >
                 <span
-                  className={`absolute h-5 w-5 rounded-full bg-white/70 ${
-                    active === color.name ? "animate-ping" : ""
+                  className={`pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-xs font-semibold text-raspberry-dark shadow-md transition-all duration-200 ${
+                    active === color.name
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-1 opacity-0"
                   }`}
-                />
-                <span className="relative h-2.5 w-2.5 rounded-full bg-white shadow transition-transform duration-200 group-hover:scale-150" />
-              </button>
+                >
+                  {color.name}
+                </span>
+
+                <button
+                  type="button"
+                  aria-label={color.name}
+                  onClick={() => setActive(color.name)}
+                  className="group relative flex h-8 w-8 items-center justify-center"
+                >
+                  <span
+                    className={`absolute h-5 w-5 rounded-full bg-white/70 ${
+                      active === color.name ? "animate-ping" : ""
+                    }`}
+                  />
+                  <span className="relative h-2.5 w-2.5 rounded-full bg-white shadow transition-transform duration-200 group-hover:scale-150" />
+                </button>
+              </div>
             ))}
           </div>
         </Reveal>
