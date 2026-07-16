@@ -30,7 +30,7 @@ const looks = [
     image:
       "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&q=80&auto=format&fit=crop",
     colors: [
-      { name: "Вишнёвый глянец", hex: "#a3123a", top: "51%", left: "78%" },
+      { name: "Вишнёвый глянец", hex: "#a3123a", top: "53%", left: "41%" },
       { name: "Белая роспись", hex: "#faf7f2", top: "59%", left: "57%" },
       { name: "Нюдовый беж", hex: "#e6c3ad", top: "48%", left: "21%" },
     ],
