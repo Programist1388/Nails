@@ -1,18 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 
-const themes = [
-  { name: "Малиновый мусс", color: "#b23a5f" },
-  { name: "Пудровый нюд", color: "#d9a5a0" },
-  { name: "Терракота", color: "#c06a3d" },
-  { name: "Марсала", color: "#6f2232" },
-];
+const activeTheme = { name: "Малиновый мусс", color: "#b23a5f" };
 
 export function Hero() {
-  const [active, setActive] = useState(themes[0].name);
-  const activeColor = themes.find((theme) => theme.name === active)!.color;
+  const active = activeTheme.name;
+  const activeColor = activeTheme.color;
 
   return (
     <section className="relative overflow-hidden bg-cream">
@@ -29,35 +21,6 @@ export function Hero() {
             сложности. Работаем в перчатках, стерилизуем инструменты после
             каждого клиента.
           </p>
-
-          <div className="mt-8">
-            <p className="mb-3 text-sm font-medium text-foreground/70">
-              <span
-                className="font-semibold transition-colors duration-500"
-                style={{ color: activeColor }}
-              >
-                {active}
-              </span>
-            </p>
-            <div className="flex gap-3">
-              {themes.map((theme) => (
-                <button
-                  key={theme.name}
-                  type="button"
-                  aria-label={theme.name}
-                  onClick={() => setActive(theme.name)}
-                  className="h-9 w-9 rounded-full ring-2 ring-offset-2 ring-offset-cream transition-transform hover:scale-110"
-                  style={{
-                    backgroundColor: theme.color,
-                    boxShadow:
-                      active === theme.name
-                        ? `0 0 0 2px ${theme.color}`
-                        : "none",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
 
           <a
             href="#booking"
