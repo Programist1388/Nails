@@ -18,12 +18,12 @@ export function Header() {
           Anastasia
         </Link>
 
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-10 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-raspberry-dark"
+              className="text-xs font-medium uppercase tracking-[0.15em] text-foreground/70 transition-colors hover:text-raspberry-dark"
             >
               {item.label}
             </a>
