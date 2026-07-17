@@ -2,7 +2,6 @@ import Link from "next/link";
 
 const navItems = [
   { href: "#services", label: "Услуги" },
-  { href: "#masters", label: "Мастера" },
   { href: "#portfolio", label: "Работы" },
   { href: "#contacts", label: "Контакты" },
 ];
