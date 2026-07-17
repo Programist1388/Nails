@@ -35,6 +35,16 @@ const looks = [
       { name: "Нюдовый беж", hex: "#e6c3ad", top: "48%", left: "21%" },
     ],
   },
+  {
+    title: "Мраморный перламутр",
+    image: "/looks/marble-pastel.jpg",
+    colors: [
+      { name: "Голубой мрамор", hex: "#a9c6dd", top: "38%", left: "33%" },
+      { name: "Розовый кварц", hex: "#e3b7c9", top: "46%", left: "57%" },
+      { name: "Сиреневая дымка", hex: "#b9a8d1", top: "89%", left: "38%" },
+      { name: "Золотая нить", hex: "#c9a227", top: "50%", left: "75%" },
+    ],
+  },
 ];
 
 export function GetTheLook() {

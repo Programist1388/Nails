@@ -7,6 +7,11 @@ const works = [
   "https://images.unsplash.com/photo-1610992015762-45dca7fa3a85?w=600&q=80&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1690749138086-7422f71dc159?w=600&q=80&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1630843599725-32ead7671867?w=600&q=80&auto=format&fit=crop",
+  "/portfolio/nude-ombre.jpg",
+  "/portfolio/neon-orange.jpg",
+  "/portfolio/tortoise-french.jpg",
+  "/portfolio/yellow-leopard.webp",
+  "/portfolio/black-butterfly.webp",
 ];
 
 export function Portfolio() {
