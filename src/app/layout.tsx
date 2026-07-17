@@ -13,8 +13,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Anastasia Manicure Studio",
-  description: "Студия маникюра Anastasia — маникюр, педикюр, гель-лак и наращивание в Дубае.",
+  title: "Anastasia Nails",
+  description: "Студия маникюра Anastasia Nails — маникюр, педикюр, гель-лак и наращивание в Дубае.",
 };
 
 export default function RootLayout({
